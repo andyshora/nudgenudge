@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>	
+<meta charset="utf-8">
+<title>nudgenudge</title>
+<link href="css/main.css" rel="stylesheet" />
+<style type="text/css">
+	#test {
+		background:#ccc;
+		padding:10px 20px;
+		width:200px;
+		text-align: center;
+		height:200px;
+		position: absolute;
+		top:50px;
+		left:300px;
+	}
+</style>
+</head>
+<body>
+	<div id="test"><br><button id="signup">Call to Action</button></div>
+	
+</body>
+<script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+<script src="js/jquery.nudgenudge.js"></script>
+<script>
+	$(document).ready(function(){
+		$('#signup').nudgenudge({
+			intensity: 'normal',
+			direction: 'right',
+			closeEvent: { "el": '#signup', "event": 'click' },
+			offsetX: 5,
+			offsetY: 0
+		});
+		
+	});
+	
+</script>
+</html>
