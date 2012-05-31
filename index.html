@@ -4,20 +4,29 @@
 <meta charset="utf-8">
 <title>nudgenudge</title>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="prettify/prettify.css" rel="stylesheet" />
 <link href="css/nudgenudge.css" rel="stylesheet" />
 <style type="text/css">
+	.container {
+		margin-bottom: 20px;
+	}
 	#test {
-		background:#eeeeee;
-		border-radius: 10px;
-		border:1px solid #ccc;
 		padding:20px 20px;
-		width:200px;
 		text-align: center;
-		height:100px;
 	}
 	body, p {
 		font-family: "Lucida Grande", "Helvetica Neue", Arial;
 		font-size: 12px;
+	}
+	pre.prettyprint {
+		padding:10px;
+	}
+	.avatar_wrap {
+		overflow: hidden;
+		width:100px;
+		height:100px;
+		border-radius: 3px;
+		margin:10px;
 	}
 </style>
 </head>
@@ -25,20 +34,21 @@
 	<div class="container">
 		<div class="hero-unit">
 			<h1>nugenudge</h1>
-			<p>nudge your users towards your goals with annoying arrows</p>
+			<p>jQuery plugin to nudge your users towards goals with annoying arrows, by <a href="http://twitter.com/andyshora">@andyshora</a></p>
 		</div>
 		<div class="row">
 			<div class="span8">
-				<div class="span8">
+				
+				<div class="span6">
 					<h2>Notes</h2>
 					<ul>
+						<li>When the window is resized, the arrows appear in the wrong position. See the source of this demo page for the fix, which triggers the plugin init again when the window's resize event fires.
 						<li>Nudge length is 30-50px horizontally, regardless of arrow size. Sowwy, I haven't been arsed to create dynamic keyframe animations yet, but feel free to edit the CSS!</li>
 					</ul>
-				</div>
-				<div class="span6">
+				
 					<h2>Supported Browsers</h2>
 					<ul>
-						<li>Supported browsers: Chrome, Firefox, probably Safari, probably IE10 if they've got their shit together.</li>
+						<li>Supported browsers: Chrome, Firefox, Safari, probably IE10 if they've got their sheet together.</li>
 					</ul>
 				</div>
 				<div class="span6">
@@ -49,21 +59,55 @@
 				<h2>Demo</h2>
 				<p>Do your users need nudging in this direction? Then apply the nudgenudge jQuery plugin!</p>
 				<div id="test">
-					<button id="signup" class="btn btn-success">Call to Action</button>
+					<a href="https://github.com/andyshora/nudgenudge"><button id="signup" class="btn btn-success">Download nudgenudge now!</button></a>
 				</div>
 				
 			</div>
 		</div>
-		
+		<div class="span11">
+			<h2>Usage</h2>
+			<p><strong>Files required:</strong> js/jquery.nudgenudge.x.x.js, css/nudgenudge.css</p>
+			<p>Initialize the plugin when the document ready event has fired.</p>
+			<pre class="prettyprint">
+$('#signup').nudgenudge({
+	arrow: 'img/arrow_default.png', // path to the arrow image
+	arrowWidth: 150,
+	arrowHeight: 60,
+	intensity: 'medium',  // the intensity of the nudge (low, medium, high)
+	placement: 'left', // place on the left or the right of the target
+	closeEvent: { "el": '#signup', "event": 'click' }, // selector and event which triggers arrow hiding
+	hideAfter: 0,  // hide after this many nudges, 0 = for the rest of eternity
+	offsetX: -5, // adjust x position
+	offsetY: 0 // adjust y position
+});</pre>
+
+	<h2>About the Author</h2>
+	<div class="span2">
+		<div class="avatar_wrap"><img src="http://www.gravatar.com/avatar/a9432f6dce5676b4f3d959e6c554f7c7.png?s=100" /></div>
+	</div>
+	<div class="span8">
+	<p>&nbsp;</p>
+	<p>Andy Shora is a Web &amp; iOS Developer based in East London. You can find Andy on <a href="http://twitter.com/andyshora">twitter</a>, the <a href="http://andyshora.com">intertubes</a>, <a href="http://github.com/andyshora">github</a>, <a href="http://forrst.me/andyshora">forrst</a>, or email andyshora{at}gmail.com.</p>
+	</div>			
+	</div>
 		
 		
 	</div>
 </body>
 <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
-<script src="js/jquery.nudgenudge.js"></script>
+<script src="prettify/prettify.js"></script>
+<script src="js/jquery.nudgenudge.1.0.js"></script>
 <script>
 	$(document).ready(function(){
 	
+		ApplyNudgeNudge();
+		
+		$(window).resize(ApplyNudgeNudge);
+		
+		prettyPrint();
+		
+	});
+	function ApplyNudgeNudge(){
 		$('#signup').nudgenudge({
 			arrow: 'img/arrow_default.png', // path to the arrow image
 			arrowWidth: 150,
@@ -71,12 +115,11 @@
 			intensity: 'medium',  // the intensity of the nudge (low, medium, high)
 			placement: 'left', // place on the left or the right of the target
 			closeEvent: { "el": '#signup', "event": 'click' }, // selector and event which triggers arrow hiding
-			hideAfter: 0,
-			offsetX: -5,
-			offsetY: 0
+			hideAfter: 0,  // hide after this many nudges
+			offsetX: -5, // adjust x position
+			offsetY: 0 // adjust y position
 		});
-		
-	});
+	}
 	
 </script>
 </html>

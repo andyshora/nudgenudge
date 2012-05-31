@@ -23,8 +23,12 @@
         		$('#nudgenudge_' + i).hide();
         	});
         };
+        base.removeExistingArrows = function() {
+        	$('.nudgenudge_wrap').remove();
+        };
         base.addNudgeAnimation = function(){
         
+        	
         	// get offset of element
         	var offset = $(base.el).offset();
         	var el_left = offset.left;
@@ -73,6 +77,7 @@
         // Run initializer
         base.init();
         
+        base.removeExistingArrows();
         base.addNudgeAnimation();
         base.addCloseEventHandlers();
         
