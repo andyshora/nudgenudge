@@ -3,7 +3,8 @@
 <head>	
 <meta charset="utf-8">
 <title>nudgenudge</title>
-<link href="css/main.css" rel="stylesheet" />
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<link href="css/nudgenudge.css" rel="stylesheet" />
 <style type="text/css">
 	#test {
 		background:#eeeeee;
@@ -13,13 +14,6 @@
 		width:200px;
 		text-align: center;
 		height:100px;
-		position: absolute;
-		top:50px;
-		left:500px;
-	}
-	#signup {
-		padding:10px 20px;
-		cursor: pointer;
 	}
 	body, p {
 		font-family: "Lucida Grande", "Helvetica Neue", Arial;
@@ -28,15 +22,42 @@
 </style>
 </head>
 <body>
-	<div id="test">
-		<button id="signup">Call to Action</button>
-		<p>Do your users need nudging in this direction? Then apply the nudgenudge jQuery plugin!</p>
+	<div class="container">
+		<div class="hero-unit">
+			<h1>nugenudge</h1>
+			<p>nudge your users towards your goals with annoying arrows</p>
+		</div>
+		<div class="row">
+			<div class="span8">
+				<div class="span8">
+					<h2>Notes</h2>
+					<ul>
+						<li>Nudge length is 30-50px horizontally, regardless of arrow size. Sowwy, I haven't been arsed to create dynamic keyframe animations yet, but feel free to edit the CSS!</li>
+					</ul>
+				</div>
+				<div class="span6">
+					<h2>Supported Browsers</h2>
+					<ul>
+						<li>Supported browsers: Chrome, Firefox, probably Safari, probably IE10 if they've got their shit together.</li>
+					</ul>
+				</div>
+				<div class="span6">
+				</div>
+				
+			</div>
+			<div class="span4">
+				<h2>Demo</h2>
+				<p>Do your users need nudging in this direction? Then apply the nudgenudge jQuery plugin!</p>
+				<div id="test">
+					<button id="signup" class="btn btn-success">Call to Action</button>
+				</div>
+				
+			</div>
+		</div>
+		
+		
+		
 	</div>
-	
-	<p>Notes:</p>
-	<ul>
-		<li>Nudge length is 30-50px horizontally, regardless of arrow size.</li>
-	</ul>
 </body>
 <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script src="js/jquery.nudgenudge.js"></script>
