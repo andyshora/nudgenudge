@@ -6,31 +6,52 @@
 <link href="css/main.css" rel="stylesheet" />
 <style type="text/css">
 	#test {
-		background:#ccc;
-		padding:10px 20px;
+		background:#eeeeee;
+		border-radius: 10px;
+		border:1px solid #ccc;
+		padding:20px 20px;
 		width:200px;
 		text-align: center;
-		height:200px;
+		height:100px;
 		position: absolute;
 		top:50px;
-		left:300px;
+		left:500px;
+	}
+	#signup {
+		padding:10px 20px;
+		cursor: pointer;
+	}
+	body, p {
+		font-family: "Lucida Grande", "Helvetica Neue", Arial;
+		font-size: 12px;
 	}
 </style>
 </head>
 <body>
-	<div id="test"><br><button id="signup">Call to Action</button></div>
+	<div id="test">
+		<button id="signup">Call to Action</button>
+		<p>Do your users need nudging in this direction? Then apply the nudgenudge jQuery plugin!</p>
+	</div>
 	
+	<p>Notes:</p>
+	<ul>
+		<li>Nudge length is 30-50px horizontally, regardless of arrow size.</li>
+	</ul>
 </body>
 <script src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
 <script src="js/jquery.nudgenudge.js"></script>
 <script>
 	$(document).ready(function(){
+	
 		$('#signup').nudgenudge({
-			intensity: 'normal',
-			placement: 'right',
-			closeEvent: { "el": '#signup', "event": 'click' },
-			hideAfter: 5,
-			offsetX: 5,
+			arrow: 'img/arrow_default.png', // path to the arrow image
+			arrowWidth: 150,
+			arrowHeight: 60,
+			intensity: 'medium',  // the intensity of the nudge (low, medium, high)
+			placement: 'left', // place on the left or the right of the target
+			closeEvent: { "el": '#signup', "event": 'click' }, // selector and event which triggers arrow hiding
+			hideAfter: 0,
+			offsetX: -5,
 			offsetY: 0
 		});
 		

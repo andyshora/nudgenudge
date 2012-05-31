@@ -47,7 +47,7 @@
         		dir = "nudgenudge_right";
         	}
         
-        	$('body').append('<div id="nudgenudge_'+i+'" class="nudgenudge_wrap intensity_'+options.intensity+'" style="top:'+n_top+'px;left:'+n_left+'px;"><img class="nudgenudge '+dir+'" src="img/arrow.png" alt="" /></div>');
+        	$('body').append('<div id="nudgenudge_'+i+'" class="nudgenudge_wrap intensity_'+options.intensity+'" style="top:'+n_top+'px;left:'+n_left+'px;"><img class="nudgenudge '+dir+'" src="'+options.arrow+'" alt="" /></div>');
         	
         	if (options.hideAfter > 0){
 	        	var one_nudge_duration = 0;
@@ -55,7 +55,7 @@
 	        		case "low":
 	        			one_nudge_duration = 2000;
 	        			break;
-	        		case "normal":
+	        		case "medium":
 	        			one_nudge_duration = 1000;
 	        			break;
 	        		case "high":
@@ -79,11 +79,15 @@
     };
 
     $.nudgenudge.defaultOptions = {
-        intensity: 'normal', // how aggressively shall we point
+    	arrow: 'img/arrow_default.png', // path to the arrow image
+        intensity: 'medium', // how aggressively shall we point
         placement: 'left',
         hideAfter: 0, // 0 = for the rest of eternity
         offsetX: 5,
-        offsetY: 0
+        offsetY: 0,
+        arrowWidth: 150,
+		arrowHeight: 60,
+		nudgeLength: 50
     };
 
     $.fn.nudgenudge = function(options){

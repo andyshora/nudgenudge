@@ -21,10 +21,10 @@ img.nudgenudge_right {
     -moz-animation:    nudge_low_l 2s infinite;
     -ms-animation:     nudge_low_l 2s infinite;
 }
-.intensity_normal > img.nudgenudge_left {
-	-webkit-animation: nudge_normal_l 1s infinite;
-    -moz-animation:    nudge_normal_l 1s infinite;
-    -ms-animation:     nudge_normal_l 1s infinite;
+.intensity_medium > img.nudgenudge_left {
+	-webkit-animation: nudge_medium_l 1s infinite;
+    -moz-animation:    nudge_medium_l 1s infinite;
+    -ms-animation:     nudge_medium_l 1s infinite;
 }
 .intensity_high > img.nudgenudge_left {
 	-webkit-animation: nudge_high_l .8s infinite;
@@ -37,10 +37,10 @@ img.nudgenudge_right {
     -moz-animation:    nudge_low_r 2s infinite;
     -ms-animation:     nudge_low_r 2s infinite;
 }
-.intensity_normal > img.nudgenudge_right {
-	-webkit-animation: nudge_normal_r 1s infinite;
-    -moz-animation:    nudge_normal_r 1s infinite;
-    -ms-animation:     nudge_normal_r 1s infinite;
+.intensity_medium > img.nudgenudge_right {
+	-webkit-animation: nudge_medium_r 1s infinite;
+    -moz-animation:    nudge_medium_r 1s infinite;
+    -ms-animation:     nudge_medium_r 1s infinite;
 }
 .intensity_high > img.nudgenudge_right {
 	-webkit-animation: nudge_high_r .8s infinite;
@@ -63,18 +63,18 @@ img.nudgenudge_right {
 	50%   	{ left: 50px; }
 	100% 	{ left: 20px; }
 }
-/* normal nudge intensity */
-@-webkit-keyframes nudge_normal_l {
+/* medium nudge intensity */
+@-webkit-keyframes nudge_medium_l {
 	0%   	{ left: 0; }
 	30%   	{ left: 50px; }
 	100% 	{ left: 0; }
 }
-@-moz-keyframes nudge_normal_l {
+@-moz-keyframes nudge_medium_l {
 	0%   	{ left: 0; }
 	30%   	{ left: 50px; }
 	100% 	{ left: 0; }
 }
-@-ms-keyframes nudge_normal_l {
+@-ms-keyframes nudge_medium_l {
 	0%   	{ left: 0; }
 	30%   	{ left: 50px; }
 	100% 	{ left: 0; }
@@ -111,18 +111,18 @@ img.nudgenudge_right {
 	50%   	{ left: 0px; }
 	100% 	{ left: 30px; }
 }
-/* normal nudge intensity */
-@-webkit-keyframes nudge_normal_r {
+/* medium nudge intensity */
+@-webkit-keyframes nudge_medium_r {
 	0%   	{ left: 50px; }
 	30%   	{ left: 0px; }
 	100% 	{ left: 50px; }
 }
-@-moz-keyframes nudge_normal_r {
+@-moz-keyframes nudge_medium_r {
 	0%   	{ left: 50px; }
 	30%   	{ left: 0px; }
 	100% 	{ left: 50px; }
 }
-@-ms-keyframes nudge_normal_r {
+@-ms-keyframes nudge_medium_r {
 	0%   	{ left: 50px; }
 	30%   	{ left: 0px; }
 	100% 	{ left: 50px; }
