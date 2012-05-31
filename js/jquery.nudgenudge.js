@@ -39,16 +39,35 @@
         	
         	var dir = "";
         	
-        	if (options.direction === 'left') {
+        	if (options.placement === 'left') {
         		n_left = el_left + options.offsetX - 200;
         		dir = "nudgenudge_left";
-        	} else if (options.direction === 'right') {
+        	} else if (options.placement === 'right') {
         		n_left = el_left + options.offsetX + el_width;
         		dir = "nudgenudge_right";
         	}
         
         	$('body').append('<div id="nudgenudge_'+i+'" class="nudgenudge_wrap intensity_'+options.intensity+'" style="top:'+n_top+'px;left:'+n_left+'px;"><img class="nudgenudge '+dir+'" src="img/arrow.png" alt="" /></div>');
         	
+        	if (options.hideAfter > 0){
+	        	var one_nudge_duration = 0;
+	        	switch (options.intensity) {
+	        		case "low":
+	        			one_nudge_duration = 2000;
+	        			break;
+	        		case "normal":
+	        			one_nudge_duration = 1000;
+	        			break;
+	        		case "high":
+	        			one_nudge_duration = 800;
+	        			break;
+	        	}
+	        	if (one_nudge_duration > 0) {
+	        		var fade_time = 200;
+	        		var timeout = (options.hideAfter * one_nudge_duration) - fade_time;
+	        		setTimeout("$('#nudgenudge_"+i+"').fadeOut("+fade_time+");", timeout)
+	        	}
+        	}
         };
 
         // Run initializer
@@ -60,8 +79,9 @@
     };
 
     $.nudgenudge.defaultOptions = {
-        intensity: 'normal',
-        direction: 'left',
+        intensity: 'normal', // how aggressively shall we point
+        placement: 'left',
+        hideAfter: 0, // 0 = for the rest of eternity
         offsetX: 5,
         offsetY: 0
     };
