@@ -41,8 +41,7 @@
 				
 				<div class="span6">
 					<h2>Notes</h2>
-					<ul>
-						<li>When the window is resized, the arrows appear in the wrong position. See the source of this demo page for the fix, which triggers the plugin init again when the window's resize event fires.
+					<ul>					
 						<li>Nudge length is 30-50px horizontally, regardless of arrow size. Sowwy, I haven't been arsed to create dynamic keyframe animations yet, but feel free to edit the CSS!</li>
 					</ul>
 				
@@ -87,7 +86,7 @@ $('#signup').nudgenudge({
 	</div>
 	<div class="span8">
 	<p>&nbsp;</p>
-	<p>Andy Shora is a Web &amp; iOS Developer based in East London. You can find Andy on <a href="http://twitter.com/andyshora">twitter</a>, the <a href="http://andyshora.com">intertubes</a>, <a href="http://github.com/andyshora">github</a>, <a href="http://forrst.me/andyshora">forrst</a>, or email andyshora{at}gmail.com.</p>
+	<p>Andy Shora is a Web &amp; iOS Developer based in East London.<br />You can find Andy on <a href="http://twitter.com/andyshora">twitter</a>, the <a href="http://andyshora.com">intertubes</a>, <a href="http://github.com/andyshora">github</a>, <a href="http://forrst.me/andyshora">forrst</a>, or email andyshora{at}gmail.com.</p>
 	</div>			
 	</div>
 		
@@ -100,14 +99,6 @@ $('#signup').nudgenudge({
 <script>
 	$(document).ready(function(){
 	
-		ApplyNudgeNudge();
-		
-		$(window).resize(ApplyNudgeNudge);
-		
-		prettyPrint();
-		
-	});
-	function ApplyNudgeNudge(){
 		$('#signup').nudgenudge({
 			arrow: 'img/arrow_default.png', // path to the arrow image
 			arrowWidth: 150,
@@ -119,7 +110,10 @@ $('#signup').nudgenudge({
 			offsetX: -5, // adjust x position
 			offsetY: 0 // adjust y position
 		});
-	}
+		
+		prettyPrint();
+		
+	});
 	
 </script>
 </html>

@@ -18,13 +18,13 @@
             // Put your initialization code here
         };
 
-        base.addCloseEventHandlers = function(){
+        base.addCloseEventHandlers = function(i){
         	$(options.closeEvent.el).bind(options.closeEvent.event, function(){
         		$('#nudgenudge_' + i).hide();
         	});
         };
-        base.removeExistingArrows = function() {
-        	$('.nudgenudge_wrap').remove();
+        base.removeArrow = function(i) {
+        	$('#nudgenudge_' + i).remove();
         };
         base.addNudgeAnimation = function(){
         
@@ -77,9 +77,14 @@
         // Run initializer
         base.init();
         
-        base.removeExistingArrows();
+        
         base.addNudgeAnimation();
-        base.addCloseEventHandlers();
+        base.addCloseEventHandlers(i);
+        
+        $(window).resize(function(){
+        	base.removeArrow(i);
+        	base.addNudgeAnimation();
+        });
         
     };
 
@@ -96,7 +101,10 @@
     };
 
     $.fn.nudgenudge = function(options){
-    	var i = 0;
+    	// count how many instances are already on the page
+    	var n = ($('.nudgenudge_wrap')).length;
+    
+    	var i = n;
         return this.each(function(){
             (new $.nudgenudge(this, options, i));
 
